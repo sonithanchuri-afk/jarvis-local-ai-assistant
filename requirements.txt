@@ -1,0 +1,4 @@
+ollama
+customtkinter
+SpeechRecognition
+pyttsx3
