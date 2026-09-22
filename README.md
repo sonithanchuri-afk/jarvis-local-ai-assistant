@@ -1,303 +1,147 @@
 # JARVIS — Local AI Voice Assistant
 
-> A futuristic personal AI assistant running locally with Python, Ollama, and Llama 3.
+A futuristic personal AI assistant designed to run locally on your computer using Ollama.
 
-JARVIS is a personal AI assistant designed to provide a conversational, voice-enabled interface for interacting with a local large language model.
+JARVIS is a student-built project focused on learning how local AI, voice interaction, automation, and Python-based applications can work together.
 
-The project combines **Python**, **Ollama**, **Llama 3**, **CustomTkinter**, **speech recognition**, and **text-to-speech** to create a futuristic desktop assistant inspired by AI assistants such as JARVIS from the Iron Man universe.
+## ✨ Features
 
-The goal of this project is to learn how modern AI assistants work while keeping the core AI processing local and avoiding the need for a paid cloud AI API.
+* 🤖 Local AI using Ollama
+* 🧠 AI-powered conversations
+* 🎤 Voice interaction
+* 🔊 Text-to-speech
+* 💻 Runs locally on your computer
+* 🔐 Designed to keep AI processing local
+* ⚡ Simple startup using Windows batch files
+* 🛠️ Built as a learning project
 
----
+## 🧰 Technologies
 
-## Features
-
-* 🧠 Local AI responses using Ollama
-* 🤖 Llama 3 language model
-* 🎤 Speech-to-text input
-* 🔊 Text-to-speech responses
-* 🖥️ Futuristic CustomTkinter interface
-* 💬 Conversational chat interface
-* 🔵 Animated JARVIS-style interface
-* 📡 Online / Listening / Thinking / Speaking status indicators
-* ⚡ Local processing without requiring a paid AI API
-* 🐍 Built entirely with Python
-
----
-
-## Architecture
-
-```text
-                 ┌──────────────────────┐
-                 │       USER           │
-                 │  Voice / Text Input  │
-                 └──────────┬───────────┘
-                            │
-                            ▼
-                 ┌──────────────────────┐
-                 │    JARVIS UI        │
-                 │    CustomTkinter     │
-                 └──────────┬───────────┘
-                            │
-              ┌─────────────┴─────────────┐
-              │                           │
-              ▼                           ▼
-     ┌─────────────────┐        ┌─────────────────┐
-     │ SpeechRecognition│        │   Text Input    │
-     └────────┬────────┘        └────────┬────────┘
-              │                          │
-              └────────────┬─────────────┘
-                           ▼
-                  ┌──────────────────┐
-                  │      Ollama      │
-                  │   Local LLM API  │
-                  └────────┬─────────┘
-                           │
-                           ▼
-                  ┌──────────────────┐
-                  │     Llama 3      │
-                  │   Local Model    │
-                  └────────┬─────────┘
-                           │
-                           ▼
-                  ┌──────────────────┐
-                  │    JARVIS UI     │
-                  └────────┬─────────┘
-                           │
-                           ▼
-                  ┌──────────────────┐
-                  │   pyttsx3 TTS    │
-                  │   Voice Output   │
-                  └──────────────────┘
-```
-
----
-
-## Tech Stack
-
-| Technology        | Purpose                     |
-| ----------------- | --------------------------- |
-| Python            | Main programming language   |
-| Ollama            | Local AI model runtime      |
-| Llama 3           | Large language model        |
-| CustomTkinter     | Desktop graphical interface |
-| SpeechRecognition | Speech-to-text              |
-| pyttsx3           | Text-to-speech              |
-| Threading         | Keeping the UI responsive   |
-
----
-
-## Project Structure
-
-```text
-jarvis-local-ai-assistant/
-│
-├── jarvis.py
-├── jarvis_voice.py
-├── jarvis_ui.py
-├── brain.py
-├── requirements.txt
-├── README.md
-├── .gitignore
-└── assets/
-    └── screenshots/
-```
-
-> The exact file structure may be updated to match the current project files.
-
----
-
-## Requirements
-
-Before running JARVIS, install:
-
-* Python 3.10+
+* Python
 * Ollama
 * Llama 3
-* A working microphone
-* Speakers or headphones
+* Speech Recognition
+* Text-to-Speech
+* CustomTkinter
+* Windows Batch Scripts
 
----
+## 📁 Project Structure
 
-## Installation
-
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/YOUR-USERNAME/jarvis-local-ai-assistant.git
-cd jarvis-local-ai-assistant
+```text
+jarvis-local-ai/
+│
+├── start_jarvis.bat
+├── install_jarvis.bat
+├── README.md
+├── LICENSE
+└── .gitignore
 ```
 
-### 2. Create a virtual environment
+> The project structure may change as new features are added.
 
-```bash
-python -m venv .venv
-```
+## 🚀 Getting Started
 
-Activate it on Windows:
+### 1. Install Ollama
+
+Install Ollama on your computer and make sure it is running.
+
+Then download the AI model used by the project:
 
 ```powershell
-.venv\Scripts\Activate.ps1
-```
-
-### 3. Install Python dependencies
-
-```bash
-python -m pip install -r requirements.txt
-```
-
-If `requirements.txt` does not exist yet, install the required packages:
-
-```bash
-python -m pip install ollama customtkinter SpeechRecognition pyttsx3
-```
-
----
-
-## Ollama Setup
-
-Install Ollama and download the Llama 3 model.
-
-```bash
 ollama pull llama3
 ```
 
-Check that the model is available:
+You can check your installed models with:
 
-```bash
+```powershell
 ollama list
 ```
 
-You should see:
+### 2. Clone the repository
 
-```text
-llama3
+```powershell
+git clone https://github.com/YOUR-USERNAME/jarvis-local-ai.git
 ```
 
-Make sure Ollama is running before starting JARVIS.
+Enter the project folder:
 
----
-
-## Running JARVIS
-
-Run the main interface:
-
-```bash
-python jarvis_ui.py
+```powershell
+cd jarvis-local-ai
 ```
 
-The application should open the JARVIS desktop interface.
+### 3. Run the installation script
 
-You can then:
+Run the project's installation `.bat` file.
 
-1. Type a message.
-2. Press the voice button.
-3. Speak to JARVIS.
-4. JARVIS converts your speech to text.
-5. Ollama sends the prompt to Llama 3.
-6. The response appears in the interface.
-7. JARVIS can speak the response using text-to-speech.
+For example:
 
----
-
-## Example
-
-```text
-USER:
-What is artificial intelligence?
-
-JARVIS:
-Artificial intelligence is the field of computer science focused
-on creating systems that can perform tasks that normally require
-human intelligence...
+```powershell
+.\install_jarvis.bat
 ```
 
----
+### 4. Start JARVIS
 
-## Why Local AI?
+Run:
 
-One of the main goals of this project is to experiment with AI without depending entirely on cloud APIs.
+```powershell
+.\start_jarvis.bat
+```
 
-With Ollama, the language model runs locally on the computer.
+The exact filenames may differ depending on the current version of the project.
 
-This provides:
+## 🧠 Why Local AI?
 
-* Local model execution
-* No per-request API cost
-* Greater control over the application
-* An excellent environment for learning AI development
+JARVIS uses Ollama to run AI models locally instead of requiring every conversation to be sent to a cloud AI service.
 
-Performance will depend on the computer's hardware and the model being used.
+This makes the project useful for learning about:
 
----
-
-## Learning Goals
-
-This project was created as a hands-on way to learn:
-
-* Python application development
-* GUI development
-* Local LLMs
-* Ollama
-* Prompt engineering
-* Speech recognition
-* Text-to-speech
-* Multithreading
-* AI application architecture
+* Local Large Language Models
+* AI assistants
+* Voice interfaces
+* Python automation
 * Retrieval-Augmented Generation (RAG)
+* AI application development
 
----
+## 🔮 Future Plans
 
-## Future Plans
+Possible future improvements include:
 
-The project is intended to grow beyond a simple chatbot.
+* 📚 RAG-based knowledge system
+* 🗂️ Personal document search
+* 🧠 Long-term memory
+* 🌐 Optional web search
+* 🖥️ Improved futuristic interface
+* 🎤 Better voice recognition
+* 🔊 More natural voice responses
+* ⚙️ Computer automation
+* 🧩 Tool integration
 
-Planned improvements include:
+## ⚠️ Project Status
 
-* [ ] RAG document knowledge
-* [ ] Persistent conversation memory
-* [ ] File understanding
-* [ ] PDF/document question answering
-* [ ] Web search capabilities
-* [ ] Tool calling
-* [ ] Computer automation
-* [ ] Custom wake-word detection
-* [ ] Improved voice recognition
-* [ ] Multiple local models
-* [ ] Better conversation history
-* [ ] Plugin/tool architecture
-* [ ] More advanced JARVIS-style UI
+This project is actively being developed and is primarily a learning project.
 
----
+Features and project structure may change over time.
 
-## Security
+## 🔒 Security
 
-Never store API keys, passwords, tokens, personal credentials, or other secrets directly in the repository.
+Never upload private information, passwords, API keys, tokens, `.env` files, or other secrets to this repository.
 
-Use environment variables or local configuration files instead.
+Before pushing changes, check:
 
-Make sure files containing secrets are included in `.gitignore`.
+```powershell
+git status
+```
 
----
-
-## Disclaimer
-
-JARVIS is an educational personal AI assistant project.
-
-The name and interface are inspired by fictional AI assistants and are not affiliated with Marvel, Disney, or any other related rights holder.
-
----
-
-## Author
-
-Built as a personal AI and Python learning project.
-
-**Author:** YOUR-NAME
-
----
-
-## License
+## 📜 License
 
 This project is licensed under the MIT License.
 
-See `LICENSE` for details.
+See [LICENSE](LICENSE) for details.
+
+## 👨‍💻 Author
+
+Built as a student AI project to explore local AI, voice assistants, Python, and automation.
+
+---
+
+⭐ If you find this project interesting, feel free to explore the code and follow its development.
