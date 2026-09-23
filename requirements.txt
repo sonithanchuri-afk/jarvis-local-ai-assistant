@@ -1,0 +1,12 @@
+customtkinter
+numpy
+pyautogui
+pyttsx3
+requests
+sounddevice
+SpeechRecognition
+pypdf
+python-docx
+psutil
+opencv-contrib-python
+beautifulsoup4
